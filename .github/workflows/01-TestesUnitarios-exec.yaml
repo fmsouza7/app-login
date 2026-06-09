@@ -51,9 +51,16 @@ jobs:
       - name: Executando testes unitários
         run: yarn test --coverage
 
-      # geração de relatorios dos Testes Unitários
-      - name: Salvando Relatórios de Testes Unitários
+      # execução do relatorio Mochawesome
+      - name: Salvando Relatório Mochawesome
         uses: actions/upload-artifact@v4
         with:
-          name: Relatório de Testes Unitários
-          path: ./reports/
+          name: Relatório Mochawesome
+          path: ./reports/mochawesome/
+
+      # execução do relatorio JUnit
+      - name: Salvando Relatório JUnit
+        uses: actions/upload-artifact@v4
+        with:
+          name: Relatório JUnit
+          path: ./reports/junit/test-results.xml

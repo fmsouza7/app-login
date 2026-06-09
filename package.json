@@ -23,6 +23,8 @@
   "homepage": "https://github.com/fmsouza7/app-login#readme",
   "devDependencies": {
     "chai": "^6.2.2",
-    "mocha": "^11.7.6"
+    "mocha": "^11.7.6",
+    "mocha-junit-reporter": "^2.2.1",
+    "mochawesome": "^7.1.4"
   }
 }
