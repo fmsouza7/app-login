@@ -73,4 +73,4 @@ jobs:
         with:
           name: Testes Unitários
           path: reports/junit/test-results.xml
-          reporter: jest-junit
+          reporter: tester-junit
