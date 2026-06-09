@@ -1,4 +1,4 @@
-# CI de Nível 01 - Disparo Manual através de clique
+# CI de Nível 01, 02 - Disparo Manual através de clique
 
 # nome da pipeline
 name: 'Execução Testes Unitários'
@@ -54,6 +54,7 @@ jobs:
       # Upload do relatorio Mochawesome
       - name: Salvando Relatório Mochawesome
         uses: actions/upload-artifact@v4
+        if: ${{ always() }}
         with:
           name: Relatório Mochawesome
           path: ./reports/mochawesome/
@@ -61,6 +62,7 @@ jobs:
       # Upload do relatorio JUnit
       - name: Salvando Relatório JUnit
         uses: actions/upload-artifact@v4
+        if: ${{ always() }}
         with:
           name: Relatório JUnit
           path: ./reports/junit/test-results.xml
