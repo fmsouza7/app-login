@@ -20,7 +20,7 @@ on:
   # Execução automatica - após push 
   push:
     branches:
-      - master
+      - main
 
 #tarefas dentro da pipeline = jobs
 jobs:
