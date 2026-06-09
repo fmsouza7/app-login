@@ -66,3 +66,11 @@ jobs:
         with:
           name: Relatório JUnit
           path: ./reports/junit/test-results.xml
+
+      - name: Publicar Relatório JUnit na UI do GitHub Actions
+        uses: dorny/test-reporter@v1
+        if: ${{ always() }}
+        with:
+          name: Testes Unitários
+          path: reports/junit/test-results.xml
+          reporter: mocha-junit-reporter
