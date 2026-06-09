@@ -46,19 +46,30 @@ jobs:
       # instalação das dependências
       - name: Instalando dependências
         run: yarn
+      
+      - name: Instalar reporters
+        run: npm install --save-dev mochawesome mocha-junit-reporter
 
       # execução de testes unitarios
       - name: Executando testes unitários
         run: yarn test --coverage
 
-      # execução do relatorio Mochawesome
+      # Executa o relatorio Mochawesome
+      - name: Executar testes com Mocha (Mochawesome)
+        run: npm run test:mochawesome
+
+      # Executa o relatorio Mocha (JUnit)
+      - name: Executar testes com Mocha (JUnit)
+        run: npm run test:junit
+
+      # Upload do relatorio Mochawesome
       - name: Salvando Relatório Mochawesome
         uses: actions/upload-artifact@v4
         with:
           name: Relatório Mochawesome
           path: ./reports/mochawesome/
 
-      # execução do relatorio JUnit
+      # Upload do relatorio JUnit
       - name: Salvando Relatório JUnit
         uses: actions/upload-artifact@v4
         with:
