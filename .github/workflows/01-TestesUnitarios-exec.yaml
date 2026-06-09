@@ -1,0 +1,59 @@
+# CI de Nível 01 - Disparo Manual através de clique
+
+# nome da pipeline
+name: 'Execução Testes Unitários'
+
+# gatilhos / triggers - regras de disparo
+# gatilho manual = workflow_dispatch
+# gatilho agendado = schedule
+# gatilho automático = push
+
+on:
+  # Execução manual
+  workflow_dispatch:
+  # Execução Agendada
+  schedule:
+    # Cronograma de Execução
+    # 1 - Minuto, 2 - hora, 3 - dia do mês, 4 - mês, 5 - dia da semana
+    # Roda a cada 30 min
+    - cron: '*/30 * * * *'
+  # Execução automatica - após push 
+  push:
+    branches:
+      - master
+
+#tarefas dentro da pipeline = jobs
+jobs:
+  #nome do job
+  unidade:
+    # maquina onde o job vai rodar
+    runs-on: ubuntu-latest
+
+    # passos do job
+    steps:
+      # clone do projeto
+      - uses: actions/checkout@v4
+
+      # instalação do node
+      - uses: actions/setup-node@v4
+        with:
+          node-version: latest
+
+      # instalação do Yarn
+      - name: Instalando Yarn
+        run: npm install -g yarn
+
+      # instalação das dependências
+      - name: Instalando dependências
+        run: yarn
+
+      # execução de testes unitarios
+      - name: Executando testes unitários
+        run: yarn test --coverage
+
+      # geração de relatorios dos Testes Unitários
+      - name: Salvando Relatórios de Testes Unitários
+        uses: actions/upload-artifact@v4
+        with:
+          name: Relatório de Testes Unitários
+          path: ./reports/
