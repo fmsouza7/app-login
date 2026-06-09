@@ -7,7 +7,9 @@
     "test": "test"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "test:mochawesome": "mocha --reporter mochawesome --reporter-options reportDir=reports/mochawesome",
+    "test:junit": "mocha --reporter mocha-junit-reporter --reporter-options mochaFile=reports/junit/test-results.xml"
   },
   "repository": {
     "type": "git",
