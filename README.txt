@@ -123,3 +123,7 @@ Este documento descreve detalhadamente as ações realizadas para a criação de
 				name: Testes Unitários
 				path: reports/junit/test-results.xml
 				reporter: java-junit
+
+7. Após realizar o push para o Github a pipeline foi executada automaticamente com sucesso.
+8. Após clicar em Run workflow a pipeline foi executada com sucesso.
+9. Após um período a pipeline foi executada pelo agendamento com sucesso.
