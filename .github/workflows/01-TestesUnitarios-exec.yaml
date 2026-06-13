@@ -1,4 +1,4 @@
-# CI de Nível 01, 02 - Disparo Manual através de clique
+# Pipeline Execução de Testes Unitários
 
 # nome da pipeline
 name: 'Execução Testes Unitários'
